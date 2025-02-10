@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "mathematic.vscode-pdf",
-        "bierner.markdown-mermaid"
+        "bierner.markdown-mermaid",
+        "james-yu.latex-workshop"
     ]
 }
