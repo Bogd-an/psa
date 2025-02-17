@@ -3,4 +3,4 @@
 
 
 
-`sudo apt install -y texlive-latex-extra texlive-lang-cyrillic`
+`sudo apt install -y latexmk texlive-latex-extra texlive-lang-cyrillic`
