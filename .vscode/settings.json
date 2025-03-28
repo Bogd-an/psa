@@ -6,6 +6,7 @@
         "**/*.log": true,
         "**/*.synctex.gz": true
     },
-    "latex-workshop.latex.rootFile.useSubFile": true
+    "latex-workshop.latex.rootFile.useSubFile": true,
+"latex-workshop.latex.outDir": "./pdf",
 
 }
