@@ -9,7 +9,7 @@
 та розробка програмного забезпечення\\
 для мікроконтролерів.
     }
-\section*{Тема}
+\section*{Тема роботи}
 Вивчення можливостей використання платформи Arduino у складі систем автоматичного контролю технологічних параметрів. Розробка алгоритмічно-програмного забезпечення роботи мікроконтролерів в системах автоматизації на прикладі платформи Arduino.
 
 \section*{Мета роботи}
@@ -17,7 +17,7 @@
 
 
 \section*{Обладнання та інструменти}
-\begin{itemize}
+\begin{itemize} 
     \item Arduino Uno R3 на базі мікроконтролера ATmega328.
     \item Гребінка 40 Pin 1x40, однорядна.
     \item Персональний комп’ютер.
@@ -28,25 +28,57 @@
 
 \newpage 
 
-% \section*{Схема}
+\section*{Програма миготіння світлодіодом}
+
+Завдання: модифікувати скетч Blink у Blink2 та
+Blink3, зменшивши в 2 та збільшивши у 3 рази відповідно
+затримку мерехтіння користувацького світлоліода L.
+
+\begin{lstlisting}[language=C++, caption=Програма Blink2 - вбудований світлодіод миготить у 2 рази швидше]
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+  delay(500/2);
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imgs/LW4.0.1.png}
+    \caption*{Рис. 4.1: Діаграма миготіння Blink2}
+\end{figure} 
+
+\newpage 
+
+\begin{lstlisting}[language=C++, caption=Програма Blink3 - вбудований світлодіод миготить у 3 рази повільніше]
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+  delay(500*3);
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imgs/LW4.0.2.png}
+    \caption*{Рис. 4.2: Діаграма миготіння Blink3}
+\end{figure} 
+
+\newpage 
+
+
 % https://wokwi.com/projects/425977612553598977
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/LW4.1.png}
-    \caption*{Рис. 4.1: Схема підключення терморезистора до мікроконтроллера}
+    \caption*{Рис. 4.3: Схема підключення терморезистора до мікроконтроллера}
 \end{figure} 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{imgs/LW4.2.png}
-    \caption*{Рис. 4.2: Таблиця результатів вимірювання}
-\end{figure} 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.6\textwidth]{imgs/LW4.3.png}
-    \caption*{Рис. 4.3: Діаграма результатів вимірювання}
-\end{figure} 
-
-
 
 \section*{Код програми}
 \begin{lstlisting}[language=C++, caption=Програма для вимірювання температури]
@@ -65,6 +97,20 @@ void loop() {
   delay(500);
 }
 \end{lstlisting}
+\section*{Результати вимірювання}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{imgs/LW4.2.png}
+    \caption*{Рис. 4.4: Таблиця результатів вимірювання}
+\end{figure} 
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{imgs/LW4.3.png}
+    \caption*{Рис. 4.5: Діаграма результатів вимірювання}
+\end{figure} 
 
 \subsection*{Алгоритм роботи програми}
 \begin{enumerate}
@@ -78,6 +124,14 @@ void loop() {
         \item Виконується затримка у 500 мс перед наступним зчитуванням значень.
     \end{enumerate}
 \end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{imgs/LW4.01.png}
+    \caption*{Рис. 4.6: Діаграма алгоритму роботи програми вимірювання температури}
+\end{figure} 
+
+% \newpage
 
 \section*{Висновки}
 В ході виконання лабораторної роботи було вивчено принцип роботи мікроконтролера ATmega328 на платформі Arduino Uno, встановлено та налаштовано програмне середовище Arduino IDE, а також реалізовано програму для вимірювання температури за допомогою датчика.

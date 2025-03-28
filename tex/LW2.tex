@@ -19,29 +19,16 @@
     принципові для керування промисловими двигунами різних типів.
 
     \section*{Вихідні дані (Варіант 09)}
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{|l|c|}
-            \hline
-            \textbf{Параметр} & \textbf{Значення} \\
-            \hline
-            Потужність, кВт & 1,0 \\
-            \hline
-            cos$\varphi$ & 0,86 \\
-            \hline
-            Швидкість обертання n ном, об/хв & 2850 \\
-            \hline
-            $\gamma$ (перенавантажувальна здатність) & 2,2 \\
-            \hline
-            ККД, \% & 91 \\
-            \hline
-            $\alpha$ (кратність пускового струму) & 5,1 \\
-            \hline
-            $\beta$ (кратність пускового моменту) & 2,35 \\
-            \hline
-        \end{tabular}
-        \caption{Вихідні дані для розрахунків}
-    \end{table}
+Для варіанту 9:
+\begin{itemize}
+    \item Номінальна потужність на валу, \( P_{\text{ном.мех}} = 125 \, \text{кВт} \)
+    \item Коефіцієнт потужності, \( \cos \varphi_{\text{ном}} = 0.95 \)
+    \item Номінальна швидкість обертання, \( n_{\text{ном}} = 1460 \, \text{об/хв} \)
+    \item Коефіцієнт перенавантажної здатності, \( \gamma = 2.3 \)
+    \item ККД, \( \eta = 91\% \)
+    \item Коефіцієнт кратності пускового струму, \( \alpha = 5.1 \)
+    \item Коефіцієнт кратності пускового моменту, \( \beta = 2.35 \)
+\end{itemize}
 
     \newpage 
     
@@ -76,82 +63,142 @@
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.45\textwidth]{imgs/LW2.1.png}
+    \includegraphics[width=0.8\textwidth]{imgs/LW2.1.png}
     \caption*{Рис. 2.1: Схема електрична принципова реверсивного керування асинхронним електродвигуном}
 \end{figure} 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{imgs/LW2.2.png}
-    \caption*{Рис. 2.2:Схема електрична принципова нереверсивного керування асинхронним електродвигуном}
+    \includegraphics[width=0.85\textwidth]{imgs/LW2.2.png}
+    \caption*{Рис. 2.2: Схема електрична принципова нереверсивного керування асинхронним електродвигуном}
+\end{figure} 
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imgs/LW2.3.png}
+    \caption*{Рис. 2.3: Схема електрична принципова керування трифазним асинхронним електродвигуном з короткозамкненим ротором з обмеженням  пускового струму і моменту активними опорами}
 \end{figure} 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{imgs/LW2.3.png}
-    \caption*{Рис. 2.3: Схема електрична принципова керування трифазним асинхронним електродвигуном з короткозамкненим ротором з обмеженням  пускового струму і моменту активними опорами}
-\end{figure} 
+    \includegraphics[width=0.55\textwidth]{imgs/LW2.4.png}
+    \caption*{Рис. 2.4: Схема електрична принципова керування трифазним асинхронним
+електродвигуном з перемиканням обмотки статора iз «зірки» на «трикутник» при пуску}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/LW2.4.2.png}
+    \caption*{Рис. 2.5: Схема електрична принципова}
+\end{figure}
+
+
 
     \section*{Розрахунки}
 
-\subsection*{Споживана потужність}
-\begin{align*}
-    P_{\text{спож}} &= \frac{P_{\text{ном.мех}}}{\eta} = \frac{1,0 \text{ кВт}}{0,91} = 1,098 \text{ кВт}.
-\end{align*}
 
-\begin{align*}
-    S &= \frac{P_{\text{спож}}}{\cos\varphi} = \frac{1,098}{0,86} = 1,277 \text{ кВА}.
-\end{align*}
+\subsection*{1. Споживана потужність}
+\textbf{Активна потужність:}
+\[
+P_{\text{ном.ел}} = \frac{P_{\text{ном.мех}}}{\eta} = \frac{125}{0.91} \approx 137.36 \, \text{кВт}
+\]
 
-\begin{align*}
-    Q &= \sqrt{S^2 - P_{\text{спож}}^2} = \sqrt{1,277^2 - 1,098^2} = 0,635 \text{ кВАр}.
-\end{align*}
+\textbf{Повна потужність:}
+\[
+S_{\text{ном}} = \frac{P_{\text{ном.ел}}}{\cos \varphi_{\text{ном}}} = \frac{137.36}{0.95} \approx 144.59 \, \text{кВА}
+\]
 
-\subsection*{Споживаний струм}
+\textbf{Реактивна потужність:}
+\[
+Q_{\text{ном}} = \sqrt{S_{\text{ном}}^2 - P_{\text{ном.ел}}^2} = \sqrt{144.59^2 - 137.36^2} \approx 45.16 \, \text{кВАр}
+\]
 
-\begin{align*}
-    I &= \frac{S}{\sqrt{3} U_{\text{лін}}} = \frac{1,277 \times 10^3}{\sqrt{3} \times 380} = 1,942 \text{ А}.
-\end{align*}
+\subsection*{2. Споживаний струм}
+\[
+I_{л} = \frac{S_{\text{ном}}}{\sqrt{3} \cdot U_{\text{лін}}} = \frac{144.59 \times 10^3}{\sqrt{3} \cdot 380} \approx 219.6 \, \text{А}
+\]
 
-\subsection*{Пусковий струм}
+\subsection*{3. Пусковий струм}
+\[
+I_{\text{пуск}} = \alpha \cdot I_{\text{ном}} = 5.1 \times 219.6 \approx 1120 \, \text{А}
+\]
 
-\begin{align*}
-    I_{\text{пуск}} &= \alpha I = 5,1 \times 1,942 = 9,9 \text{ А}.
-\end{align*}
+\subsection*{4. Ємність конденсаторів для підвищення \( \cos \varphi \) до 0.95}
+\textbf{Для схеми "зірка":}
+\[
+C_Y = \frac{Q_{\text{конд}}}{2 \pi f \cdot 3 U_{ф}^2} = \frac{45.16 \times 10^3}{2 \pi \cdot 50 \cdot 3 \cdot (220)^2} \approx 49.5 \, \mu\text{F}
+\]
 
-\subsection*{Обертаючі моменти}
+\textbf{Для схеми "трикутник":}
+\[
+C_{\Delta} = \frac{Q_{\text{конд}}}{2 \pi f \cdot 3 U_{\text{лін}}^2} = \frac{45.16 \times 10^3}{2 \pi \cdot 50 \cdot 3 \cdot (380)^2} \approx 16.5 \, \mu\text{F}
+\]
 
-\begin{align*}
-    M_{\text{н}} &= \frac{P_{\text{ном.мех}} \times 9550}{n_{\text{ном}}} = \frac{1,0 \times 9550}{2850} = 3,35 \text{ Нм}.
-\end{align*}
+\subsection*{5. Обертові моменти}
+\textbf{Номінальний момент:}
+\[
+M_{\text{ном}} = \frac{P_{\text{ном.мех}}}{\Omega} = \frac{125 \times 10^3}{2 \pi \cdot \frac{1460}{60}} \approx 818.5 \, \text{Нм}
+\]
 
-\begin{align*}
-    M_{\text{пуск}} &= \beta M_{\text{н}} = 2,35 \times 3,35 = 7,87 \text{ Нм}.
-\end{align*}
+\textbf{Пусковий момент:}
+\[
+M_{\text{пуск}} = \beta \cdot M_{\text{ном}} = 2.35 \times 818.5 \approx 1923.5 \, \text{Нм}
+\]
 
-\begin{align*}
-    M_{\text{кр}} &= \gamma M_{\text{н}} = 2,2 \times 3,35 = 7,37 \text{ Нм}.
-\end{align*}
+\textbf{Критичний момент:}
+\[
+M_{\text{кр}} = \gamma \cdot M_{\text{ном}} = 2.3 \times 818.5 \approx 1882.6 \, \text{Нм}
+\]
 
-\subsection*{Ковзання}
+\subsection*{6. Ковзання}
+\textbf{Номінальне ковзання:}
+\[
+s_{\text{ном}} = \frac{n_1 - n_{\text{ном}}}{n_1} = \frac{1500 - 1460}{1500} \approx 0.0267
+\]
 
-\begin{align*}
-    S_{\text{ном}} &= \frac{n_{\text{с}} - n_{\text{ном}}}{n_{\text{с}}} \approx \frac{3000 - 2850}{3000} = 0,05.
-\end{align*}
+\textbf{Критичне ковзання:}
+\[
+s_{\text{кр}} = s_{\text{ном}} \cdot \left( \gamma + \sqrt{\gamma^2 - 1} \right) = 0.0267 \cdot \left( 2.3 + \sqrt{2.3^2 - 1} \right) \approx 0.12
+\]
 
-\begin{align*}
-    S_{\text{кр}} &= \frac{M_{\text{н}}}{M_{\text{кр}}} = \frac{3,35}{7,37} = 0,455.
-\end{align*}
+\subsection*{7. Потужність втрат}
+\textbf{Втрати в обмотках:}
+\[
+P_{\text{втр}} = P_{\text{ном.ел}} - P_{\text{ном.мех}} = 137.36 - 125 = 12.36 \, \text{кВт}
+\]
 
-\subsection*{Ємність конденсаторів}
 
-\begin{align*}
-    Q_{\text{кор}} &= P_{\text{спож}} (\tan \varphi_{\text{поч}} - \tan \varphi_{\text{кінц}}) = 1,098 (\tan 30^\circ - \tan 18^\circ) \approx 0,256 \text{ кВАр}.
-\end{align*}
 
-\begin{align*}
-    C &= \frac{Q_{\text{кор}}}{2 \pi f U^2} = \frac{0,256 \times 10^3}{2 \pi \times 50 \times (380)^2} = 5,7 \text{ мкФ}.
-\end{align*}
+\section*{Обчислення обертаючого моменту}
+
+Обертаючий момент асинхронного двигуна визначається за формулою:
+
+\begin{equation}
+    M = \frac{M_{\text{кр}}}{\frac{S_{\text{кр}}}{S} + \frac{S}{S_{\text{кр}}}}
+\end{equation}
+
+де:
+\begin{itemize}
+    \item $M$ — обертаючий момент двигуна при ковзанні $S$, Н·м;
+    \item $M_{\text{кр}}$ — критичний момент (максимальний обертаючий момент), Н·м;
+    \item $S$ — значення ковзання;
+    \item $S_{\text{кр}}$ — критичне ковзання (значення ковзання, при якому досягається максимальний момент).
+\end{itemize}
+
+Ця формула дозволяє обчислити момент для різних значень ковзання:
+\begin{itemize}
+    \item при $S = 0$ момент теоретично дорівнює нулю;
+    \item при $S = S_{\text{кр}}$ двигун розвиває максимальний момент $M_{\text{кр}}$;
+    \item при великих значеннях $S$ момент зменшується.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{imgs/LW2.5.png}
+    \caption*{Рис. 2.6: Розрахунок крутного моменту}
+\end{figure} 
+
 
 \section*{Висновки}
 
