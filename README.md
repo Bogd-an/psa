@@ -1,7 +1,10 @@
 # Проектування систем автоматизації
 
-Звіти пишуться в [overleaf](https://www.overleaf.com/read/wjpcqjfpkjbc#73928a)
-
+Структура:
+* оригінали [latex](/workspaces/psa/tex)
+* скомпільовані [pdf](/workspaces/psa/tex/pdf)
+* зображення та діагарами [Draw.io](/workspaces/psa/tex/imgs)
+* схеми [Splan](/workspaces/psa/splan)
 ---
 
 Для VScode `sudo apt update; sudo apt install -y latexmk texlive-latex-extra texlive-lang-cyrillic`
